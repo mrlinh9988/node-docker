@@ -1,0 +1,33 @@
+version: "3"
+services:
+  nginx:
+    image: nginx:stable-alpine
+    container_name: nginx
+    ports:
+      - "3000:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - node-app
+  node-app: 
+    build: .
+    environment:
+      - PORT=3000
+    depends_on: # nó chỉ hiểu đơn giản là chờ cho mongo service được chạy trước, chứ ko biết được
+      # là mongo đã được khởi chạy thành công hay chưa, nên nếu trường hợp mongo ko được init
+      # thành công thì node-app cũng sẽ ko connect được với mongo
+      - mongo
+  mongo:
+    image: mongo
+    container_name: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=mongoadmin
+      - MONGO_INITDB_ROOT_PASSWORD=secret
+    volumes:
+      - mongo-db:/data/db
+  redis:
+    container_name: redis
+    image: redis:alpine
+
+volumes:
+  mongo-db:

@@ -40,3 +40,10 @@ ta phải thêm option -V thì nó mới tạo mới anonymous volume node_modul
 
 # docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --scale node-app=2 
 ==> chú ý là khi chạy scale thì ko được set thuộc tính container_name vì các container cần có unique name
+
+
+# Để set toàn bộ biến môi trường trên VPS ubuntu ta thêm dòng sau vào cuối file .profile trên VPS:
+    set -o allexport; source /home/ubuntu/.env; set -o allexport;
+
+=> nó sẽ loop hết các biến môi trường bên trong file .env và set vào danh sách biến môi trường
+trên VPS. Để xem danh sách biến môi trường ta có thể dùng lệnh "printenv"

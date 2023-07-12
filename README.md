@@ -47,3 +47,5 @@ ta phải thêm option -V thì nó mới tạo mới anonymous volume node_modul
 
 => nó sẽ loop hết các biến môi trường bên trong file .env và set vào danh sách biến môi trường
 trên VPS. Để xem danh sách biến môi trường ta có thể dùng lệnh "printenv"
+
+# Link github: https://github.com/mrlinh9988/node-docker

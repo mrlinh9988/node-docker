@@ -48,7 +48,7 @@ app.enable("trust proxy");
 // }));
  
 app.get('/api/v1', (req, res) => {
-    console.log('hello world');
+    console.log('hello world 9999');
     res.send('<h2>Hello Nguyen Hai Linh 111</h2>')
 })
 

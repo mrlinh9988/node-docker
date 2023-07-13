@@ -49,3 +49,10 @@ ta phải thêm option -V thì nó mới tạo mới anonymous volume node_modul
 trên VPS. Để xem danh sách biến môi trường ta có thể dùng lệnh "printenv"
 
 # Link github: https://github.com/mrlinh9988/node-docker
+
+
+# docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build node-app
+=> chỉ build lại container node-app, trong trường hợp conatiner được restart có depend vào 
+container khác thì khi chạy lệnh kia nó cũng check cả container được depend.
+Ta có thể thêm params --no-deps để có thể chỉ build lại conatainer cần build mà ko check conatiner được depend:
+    docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build --no-deps node-app

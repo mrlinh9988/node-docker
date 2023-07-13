@@ -56,3 +56,7 @@ trên VPS. Để xem danh sách biến môi trường ta có thể dùng lệnh 
 container khác thì khi chạy lệnh kia nó cũng check cả container được depend.
 Ta có thể thêm params --no-deps để có thể chỉ build lại conatainer cần build mà ko check conatiner được depend:
     docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build --no-deps node-app
+
+
+# docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --force-recreate
+=> sẽ force create lại container kể cả trường hợp config và image của nó ko đổi

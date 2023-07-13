@@ -11,6 +11,7 @@ services:
       - node-app
   node-app: 
     build: .
+    image: mrlinhdeptrai9988/node-docker
     environment:
       - PORT=3000
     depends_on: # nó chỉ hiểu đơn giản là chờ cho mongo service được chạy trước, chứ ko biết được

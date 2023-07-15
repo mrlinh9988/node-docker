@@ -78,3 +78,9 @@ docker run -d --name watchtower -e WATCHTOWER_TRACE=true -e WATCHTOWER_POLL_INTE
 
 # Mặc định khi cài docker đã có sẵn Docker swarm rồi nhưng mặc định sẽ ở chế độ inactive, để active docker swarm ta dùng lệnh:
     docker swarm init
+
+# Để node khác có thể join vào node manager ta phải mở port 2377
+
+
+# Để deploy service lên Docker swarm ta sử dụng lệnh sau:
+    docker stack deploy -c docker-compose.yml -c docker-compose.prod.yml myapp (stack name)

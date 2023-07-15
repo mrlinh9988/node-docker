@@ -60,3 +60,21 @@ Ta có thể thêm params --no-deps để có thể chỉ build lại conatainer
 
 # docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --force-recreate
 => sẽ force create lại container kể cả trường hợp config và image của nó ko đổi
+
+# docker-compose -f docker-compose.yml -f docker-compose.prod.yml build
+=> build image bằng docker-compose, với service nào có thuộc tính build
+
+# docker-compose -f docker-compose.yml -f docker-compose.prod.yml build node-app
+=> chỉ build service node-app
+
+# docker-compose -f docker-compose.yml -f docker-compose.prod.yml push node-app
+
+
+# docker-compose -f docker-compose.yml -f  docker-compose.prod.yml pull
+
+
+# Ta có thể sử dụng Docker watchtower để theo dõi xem có image mới được push lên docker hub hay không và sẽ tự động chạy lại container mới với image mới cho ta. Sử dụng lệnh dưới đây:
+docker run -d --name watchtower -e WATCHTOWER_TRACE=true -e WATCHTOWER_POLL_INTERVAL=50 -e WATCHTOWER_DEBUG=true -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower <container_name>
+
+# Mặc định khi cài docker đã có sẵn Docker swarm rồi nhưng mặc định sẽ ở chế độ inactive, để active docker swarm ta dùng lệnh:
+    docker swarm init

@@ -48,7 +48,7 @@ app.enable("trust proxy");
 // }));
  
 app.get('/api/v1', (req, res) => {
-    res.send('<h2>Hello Nguyen Hai Linh 44444</h2>')
+    res.send('<h2>Hello Nguyen Hai Linh ccc</h2>')
 })
 
 app.use('/api/v1/posts', postRoutes)
